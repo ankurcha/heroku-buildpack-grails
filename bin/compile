@@ -2,7 +2,7 @@
 # bin/compile <build-dir> <cache-dir>
 
 # fail fast
-set -ex
+set -e
 
 BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 # parse args
