@@ -40,17 +40,19 @@ install_grails()
     echo "-----> Error installing Grails framework or unsupported Grails framework version specified. Please review Dev Center for a list of supported versions."
     exit 1
   fi
+  
+  if [ ! -x "$(type -p "unzip")" ]; then 
+    echo "-----> Installing Unzip ....."
+    UNZIP_URL="https://oss.oracle.com/el4/unzip/unzip.tar"
+    UNZIP_TAR_FILE="unzip.tar"
+    curl --silent --max-time 150 --location $UNZIP_URL -o $UNZIP_TAR_FILE
+    tar xvf $UNZIP_TAR_FILE
+    chmod a+x unzip
+    rm $UNZIP_TAR_FILE
+  fi    
 
-  echo "-----> Installing Unzip ....."
-  UNZIP_URL="https://oss.oracle.com/el4/unzip/unzip.tar"
-  UNZIP_TAR_FILE="unzip.tar"
-  curl --silent --max-time 150 --location $UNZIP_URL -o $UNZIP_TAR_FILE
-  tar xvf $UNZIP_TAR_FILE
-  chmod a+x unzip
-  rm $UNZIP_TAR_FILE
-
-  unzip $GRAILS_ZIP_FILE
-  mv grails-$VER_TO_INSTALL $GRAILS_DIR
+  unzip $GRAILS_ZIP_FILE -d $GRAILS_DIR
+  # mv grails-$VER_TO_INSTALL $GRAILS_DIR
   rm $GRAILS_ZIP_FILE
 
   echo "-----> Done"
