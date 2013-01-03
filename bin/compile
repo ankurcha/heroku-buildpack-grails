@@ -45,10 +45,11 @@ install_grails()
   UNZIP_URL="https://oss.oracle.com/el4/unzip/unzip.tar"
   UNZIP_TAR_FILE="unzip.tar"
   curl --silent --max-time 150 --location $UNZIP_URL -o $UNZIP_TAR_FILE
-  tar xvf unzip.tar
+  tar xvf $UNZIP_TAR_FILE
   chmod a+x unzip
+  rm $UNZIP_TAR_FILE
 
-  unzip $GRAILS_ZIP_FILE
+  unzip $GRAILS_ZIP_FILE -d .
   rm $GRAILS_ZIP_FILE
 
   echo "-----> Done"
