@@ -36,7 +36,7 @@ install_grails()
     echo "-----> Error downloading Grails framework. Please try again..."
     exit 1
   fi
-  if [ -z "`file $GRAILS_ZIP_FILE | grep gzip`" ]; then
+  if [ -z "`file $GRAILS_ZIP_FILE | grep Zip`" ]; then
     echo "-----> Error installing Grails framework or unsupported Grails framework version specified. Please review Dev Center for a list of supported versions."
     exit 1
   fi
