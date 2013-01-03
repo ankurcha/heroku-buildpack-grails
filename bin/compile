@@ -41,7 +41,7 @@ install_grails()
     exit 1
   fi
 
-  gunzip $GRAILS_ZIP_FILE
+  unzip $GRAILS_ZIP_FILE
   rm $GRAILS_ZIP_FILE
 
   echo "-----> Done"
