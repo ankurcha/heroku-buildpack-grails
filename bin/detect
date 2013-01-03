@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x
 # bin/use <build-dir>
 
 if [ -d $1/grails-app ]; then
