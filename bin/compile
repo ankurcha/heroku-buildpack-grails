@@ -51,8 +51,10 @@ install_grails()
     rm $UNZIP_TAR_FILE
   fi    
 
+  rm -fr $GRAILS_DIR
+
   unzip $GRAILS_ZIP_FILE -d $GRAILS_DIR
-  # mv grails-$VER_TO_INSTALL $GRAILS_DIR
+  
   rm $GRAILS_ZIP_FILE
 
   echo "-----> Done"
